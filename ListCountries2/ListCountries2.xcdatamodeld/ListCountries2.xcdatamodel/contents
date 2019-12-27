@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="15508" systemVersion="19B88" minimumToolsVersion="Automatic" sourceLanguage="Objective-C" userDefinedModelVersionIdentifier="">
+    <entity name="Country" representedClassName="Country" syncable="YES">
+        <attribute name="flag" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="shortName" optional="YES" attributeType="String"/>
+        <relationship name="detailInfo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="CountryDetail" inverseName="country" inverseEntity="CountryDetail"/>
+        <relationship name="section" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Section" inverseName="countries" inverseEntity="Section"/>
+    </entity>
+    <entity name="CountryDetail" representedClassName="CountryDetail" syncable="YES">
+        <attribute name="area" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="capital" optional="YES" attributeType="String"/>
+        <attribute name="currencies" optional="YES" attributeType="String"/>
+        <attribute name="languages" optional="YES" attributeType="String"/>
+        <attribute name="population" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="region" optional="YES" attributeType="String"/>
+        <relationship name="country" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Country" inverseName="detailInfo" inverseEntity="Country"/>
+    </entity>
+    <entity name="Section" representedClassName="Section" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="countries" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Country" inverseName="section" inverseEntity="Country"/>
+    </entity>
+    <elements>
+        <element name="Country" positionX="-525.359375" positionY="-680.2265625" width="128" height="118"/>
+        <element name="Section" positionX="-788.01171875" positionY="-635.21875" width="128" height="73"/>
+        <element name="CountryDetail" positionX="-335.0625" positionY="-710.21875" width="128" height="148"/>
+    </elements>
+</model>
